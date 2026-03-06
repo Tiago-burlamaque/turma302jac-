@@ -13,7 +13,7 @@ function Login() {
           <h1 className='poppins-extralight text-4xl text-black text-shadow-lg'>Turma 302 da Jacó</h1>
         </header>
         <main className='h-100  flex items-center justify-center '>
-          <img src="public/images/WhatsApp Image 2026-03-06 at 04.43.08.jpeg" width={600} alt="" className='rounded shadow-2xl shadow-purple-500' />
+          <img src="../../public/images/WhatsApp Image 2026-03-06 at 04.43.08.jpeg" width={600} alt="" className='rounded shadow-2xl shadow-purple-500' />
         </main>
       </div>
       <div className='md:w-1/2 h-full bg-black text-white flex-col flex p-2'>

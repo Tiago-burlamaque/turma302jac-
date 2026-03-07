@@ -26,8 +26,8 @@ function Login() {
     try {
       await axios.post('http://localhost:3000/aluno/login', {nome, matricula, senha})
 
-      toast.success("Aluno logado!")
-      
+      toast.success("Aluno logado!")  
+      handleCleanForm()
     } catch (error) {
       console.error(error)
       toast.error("Erro ao entrar.")

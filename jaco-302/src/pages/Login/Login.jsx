@@ -2,6 +2,7 @@ import { useState } from 'react'
 import '../../App.css'
 import axios from 'axios'
 import { toast } from 'react-toastify'
+import Logo from '../../../images/logoMoletons.jpeg'
 
 function Login() {
 
@@ -62,7 +63,7 @@ function Login() {
           <h1 className='poppins-extralight text-4xl text-black text-shadow-lg'>Turma 302 da Jacó</h1>
         </header>
         <main className='h-100  flex items-center justify-center '>
-          <img src="../../../images/logoMoletons.jpeg" width={600} alt="Logo" className='rounded shadow-2xl shadow-purple-500' />
+          <img src={Logo} width={600} alt="Logo" className='rounded shadow-2xl shadow-purple-500' />
         </main>
       </div>
       <div className='md:w-1/2 h-full bg-black text-white flex-col flex p-2'>

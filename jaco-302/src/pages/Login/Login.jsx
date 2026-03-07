@@ -24,7 +24,7 @@ function Login() {
     e.preventDefault()
 
     try {
-      await axios.post('http://localhost:3000/aluno/login', {nome, matricula, senha})
+      await axios.post('https://nodejs-production-3558.up.railway.app:3000/aluno/login', {nome, matricula, senha})
 
       toast.success("Aluno logado!")  
       handleCleanForm()
@@ -43,7 +43,7 @@ function Login() {
     }
 
     try {
-      await axios.post('http://localhost:3000/aluno', {
+      await axios.post('https://nodejs-production-3558.up.railway.app:3000/aluno', {
         nome: nome,
         matricula: matricula,
         senha: senha

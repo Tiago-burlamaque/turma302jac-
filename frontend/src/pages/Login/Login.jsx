@@ -24,7 +24,7 @@ function Login() {
     e.preventDefault()
 
     try {
-      await axios.post('https://turma302jac-production.up.railway.app:5000/aluno/login', {nome, matricula, senha})
+      await axios.post('http://mysql.railway.internal:37751/aluno/login', {nome, matricula, senha}) 
 
       toast.success("Aluno logado!")  
       handleCleanForm()
@@ -43,11 +43,11 @@ function Login() {
     }
 
     try {
-      await axios.post('https://turma302jac-production.up.railway.app:5000/aluno', {
-        nome: nome,
-        matricula: matricula,
-        senha: senha
-      })
+        await axios.post('https://nozomi.proxy.rlwy.net:37751/aluno/registro', {
+          nome: nome,
+          matricula: matricula,
+          senha: senha
+        })
       toast.success("Aluno registrado com sucesso.")
       setAbrirModal(false)
       handleCleanForm()

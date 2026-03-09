@@ -4,6 +4,11 @@ import axios from 'axios'
 import { toast } from 'react-toastify'
 import Logo from '../../../images/logoMoletons.jpeg'
 
+import {
+  getalunos,
+  adicionaraluno
+ } from '../../services/alunos.js'
+
 function Login() {
 
   const [nome, setNome] = useState('')
@@ -24,7 +29,7 @@ function Login() {
     e.preventDefault()
 
     try {
-      await axios.post('http://mysql.railway.internal:37751/aluno/login', {nome, matricula, senha}) 
+      await axios.post(getalunos, {nome, matricula, senha}) 
 
       toast.success("Aluno logado!")  
       handleCleanForm()
@@ -43,7 +48,7 @@ function Login() {
     }
 
     try {
-        await axios.post('https://nozomi.proxy.rlwy.net:37751/aluno/registro', {
+        await axios.post(adicionaraluno, {
           nome: nome,
           matricula: matricula,
           senha: senha
@@ -93,7 +98,7 @@ function Login() {
         </form>
         <hr />
         <footer className='h-30 w-full flex  items-center justify-center'>
-          <h1 className='poppins-extralight flex gap-1'>É aluno novo? <h1 onClick={() => setAbrirModal(true)} className='text-purple-300 hover:text-purple-400 transition duration-300 cursor-pointer'>Registre-se</h1></h1>
+          <h1 className='poppins-extralight flex gap-1'>É aluno novo? <span onClick={() => setAbrirModal(true)} className='text-purple-300 hover:text-purple-400 transition duration-300 cursor-pointer'>Registre-se</span></h1>
           {abrirModal && (
             <div className='fixed top-0 left-0 flex justify-center items-center w-full h-full bg-neutral-500'>
               <div className='bg-black p-10 rounded-2xl w-100 h-150 shadow-2xl'>

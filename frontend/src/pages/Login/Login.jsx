@@ -3,11 +3,9 @@ import '../../App.css'
 import axios from 'axios'
 import { toast } from 'react-toastify'
 import Logo from '../../../images/logoMoletons.jpeg'
+import { AuthContext } from '../../context/AuthContext'
 
-import {
-  getalunos,
-  adicionaraluno
- } from '../../services/alunos.js'
+
 
 function Login() {
 
@@ -27,15 +25,23 @@ function Login() {
 
   const handleEnter = async (e) => {
     e.preventDefault()
-
+    
+    const { login } = AuthContext;
     try {
-      await axios.post(getalunos, {nome, matricula, senha}) 
-
-      toast.success("Aluno logado!")  
-      handleCleanForm()
+      const response = await axios.post("http://localhost:3000/aluno/login", {
+        matricula,
+        senha
+      });
+      
+      login(response.data.token);
+      toast.success("Aluno logado!");
     } catch (error) {
-      console.error(error)
-      toast.error("Erro ao entrar.")
+      console.error(error);
+  
+      // Acessa a mensagem de erro retornada pelo backend
+      const message = error.response?.data?.message || "Erro ao entrar";
+      toast.error(message);
+  
     }
   }
 
@@ -48,7 +54,7 @@ function Login() {
     }
 
     try {
-        await axios.post(adicionaraluno, {
+        await axios.post("http://localhost:3000/aluno/registro", {
           nome: nome,
           matricula: matricula,
           senha: senha

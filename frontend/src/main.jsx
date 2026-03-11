@@ -6,14 +6,17 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 import Login from './pages/Login/Login.jsx'
 import { ToastContainer } from 'react-toastify'
+import { AuthProvider } from './context/AuthContext.jsx'
 
 const router = createBrowserRouter([
-  { path: "/", element: <Login />}
+  { path: "/", element: <Login /> }
 ])
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router} />
-    <ToastContainer />
+    <AuthProvider>
+      <RouterProvider router={router} />
+      <ToastContainer />
+    </AuthProvider>
   </StrictMode>,
 )
